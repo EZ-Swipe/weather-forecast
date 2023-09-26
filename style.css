@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+body {
+	font-family: 'Inter', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+   background-color: #1F1F42;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.container {
+	position: relative;
+	background-color: rgb(32 0 255 / 10%);
+	-webkit-box-shadow: 0px 0px 40px 0px rgba(23, 43, 143, 0.75);
+		-moz-box-shadow: 0px 0px 40px 0px rgba(23, 43, 143, 0.75);
+		box-shadow: 0px 0px 40px 0px rgb(63 75 137 / 75%);
+	
+	width: 400px;
+	height: 105px;
+	overflow: hidden;
+	padding: 28px 32px;
+	border-radius: 18px;
+	transition: 0.6s ease-out;
+	animation: shadow-container 1s linear infinite alternate;
+}
+
+.search-box {
+	width: 100%;
+	height: min-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.search-box input {
+	width: 80%;
+	background: transparent;
+	border: 1px solid #fff;
+	padding: 12px 17px;
+	border-radius: 24px;
+	color: #F4F4F4;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.search-box input::placeholder {
+	color: #F4F4F4;
+	opacity: 0.7;
+	font-size: 18px;
+	text-transform: capitalize;
+}
+
+.search-box button {
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 22px;
+	transition: all 0.4s ease;
+}
+
+@media (hover: hover) {
+	.search-box button:hover {
+		background: rgba(255, 255, 255, 0.913);
+		color: #1F1F42;
+	}
+}
+
+
+.weather-box {
+	border-radius: 18px;
+	margin-top: 24px;
+	padding-bottom: 20px;
+	text-align: center;
+	margin-bottom: 24px;
+	position: relative;
+}
+
+.weather-box:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #000;
+	border-radius: 18px;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.weather-img {
+	position: relative;
+	margin-top: 20px;
+	animation: translate-img 1s linear infinite alternate;
+}
+
+.temperature {
+	margin-top: 10px;
+	font-size: 58px;
+	font-weight: 700;
+	line-height: 120%;
+}
+
+.description {
+	font-size: 22px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.high-low {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+}
+
+.summary {
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.10);
+	padding: 16px;
+}
+
+.date {
+	text-align: right;
+	margin-bottom: 16px;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+.weather-details {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	row-gap: 16px;
+}
+
+.weather-details div {
+	width: 50%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.text {
+	margin-top: 7px;
+}
+
+.text p {
+	font-size: 16px;
+}
+
+.text span {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 120%;
+	margin-top: 3px;
+}
+
+.not-found {
+	text-align: center;
+	margin-top: 50px;
+	scale: 0;
+	opacity: 0;
+	display: none;
+}
+
+.not-found img {
+	width: 100%;
+}
+
+.not-found p {
+	margin-top: 20px;
+}
+
+.weather-box, .summary {
+	scale: 0;
+	opacity: 0;
+}
+
+.fadeIn {
+	animation: 0.5s fadeIn forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		scale: 1;
+		opacity: 1;
+	}
+}
+
+@keyframes translate-img {
+	0% {
+		bottom: 0;
+	}
+	100% {
+		transform: scale(1.06);
+	}
+}
+
+@keyframes shadow-container {
+	0% {
+		box-shadow: 0px 0px 20px 0px rgb(63 75 137 / 75%);
+	}
+	100% {
+		box-shadow: 0px 0px 40px 0px rgb(63 75 137 / 75%);
+	}
+}
